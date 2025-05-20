@@ -171,6 +171,13 @@
         setTimeout(() => { msg.style.display = "none"; }, 1500);
       });
     }
+
+    window.onload = function () {
+  const qrImage = document.getElementById("qrImage");
+  qrImage.src = "qr_custom.webp";
+  qrImage.style.display = "block";
+};
+    
   </script>
 
 </body>

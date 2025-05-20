@@ -3,43 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donate to Our NGO</title>
+  <title>Donate to Orphan Children</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      text-align: center;
       color: #333;
     }
 
     .container {
-      padding: 40px 20px;
-      max-width: 700px;
-      margin: 40px auto;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      text-align: center;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
     }
 
-    .logo {
-      max-width: 140px;
-      margin-bottom: 20px;
+    .header-image {
+      width: 100%;
+      max-height: 220px;
+      object-fit: cover;
+      border-bottom: 4px solid #1976d2;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     h2 {
+      margin-top: 20px;
       color: #1976d2;
-      margin-bottom: 10px;
     }
 
     .donation-message {
-      font-size: 17px;
-      margin-bottom: 25px;
+      font-size: 16px;
+      margin: 10px 0 30px;
       color: #444;
     }
 
@@ -47,25 +44,58 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 30px;
-      gap: 12px;
+      gap: 15px;
     }
 
-    .amount-buttons button {
-      padding: 16px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 10px;
+    .amount-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .circle-button {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
       background-color: #1976d2;
       color: white;
-      cursor: pointer;
-      width: 140px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: background 0.3s;
+      font-size: 16px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      border: 2px solid transparent;
+      transition: transform 0.2s, background 0.3s;
     }
 
-    .amount-buttons button:hover {
+    .circle-button.selected {
+      border-color: #0d47a1;
       background-color: #1565c0;
+      transform: scale(1.05);
+    }
+
+    .amount-label {
+      margin-top: 6px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    #donateBtn {
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 16px;
+      border: none;
+      background-color: #388e3c;
+      color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+
+    #donateBtn:hover {
+      background-color: #2e7d32;
     }
 
     .qr-code {
@@ -73,121 +103,83 @@
     }
 
     .qr-code img {
-      max-width: 220px;
-      width: 100%;
-      display: none;
-    }
-
-    .instructions {
-      font-size: 15px;
-      margin-top: 20px;
-      color: #555;
+      max-width: 250px;
+      margin: auto;
+      display: block;
     }
 
     .upi-id {
       margin-top: 20px;
       font-size: 15px;
       font-weight: bold;
-      color: #444;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      cursor: pointer;
-    }
-
-    .upi-id svg {
-      stroke: #1976d2;
-    }
-
-    #copyMsg {
-      color: green;
-      font-size: 13px;
-    }
-
-    .promo-image {
-      max-width: 100%;
-      margin-top: 30px;
-      border-radius: 10px;
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 13px;
-      color: #666;
-      text-align: center;
-    }
-
-    @media (max-width: 480px) {
-      .amount-buttons button {
-        width: 100%;
-      }
+      text-shadow: 1px 1px #ccc;
     }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <img src="ngo_logo.webp" alt="NGO Logo" class="logo">
-    <h2>Support Our Local Orphan-Child Initiative</h2>
-    <p class="donation-message">
-      We are a grassroots team helping orphaned children. Your donation ensures food, clothes, and education reach those in need.
-    </p>
+    <img src="donate_children.webp" alt="Donate for Children" class="header-image">
+
+    <h2>Support Orphaned Children</h2>
+    <p class="donation-message">Your donation helps provide food, education and care to children in need.</p>
 
     <div class="amount-buttons">
-      <button onclick="showQR(99)">₹99<br><small>1-day support</small></button>
-      <button onclick="showQR(499)">₹499<br><small>Weekly kit</small></button>
-      <button onclick="showQR(999)">₹999<br><small>Full week care</small></button>
-      <button onclick="showQR(2500)">₹2,500<br><small>Education help</small></button>
-      <button onclick="showQR(10000)">₹10,000<br><small>2-month care</small></button>
-      <button onclick="showQR('custom')">Custom<br><small>Other support</small></button>
+      <div class="amount-option" onclick="selectAmount(99)">
+        <div class="circle-button" data-amount="99">₹99</div>
+        <div class="amount-label">1-day</div>
+      </div>
+      <div class="amount-option" onclick="selectAmount(499)">
+        <div class="circle-button" data-amount="499">₹499</div>
+        <div class="amount-label">Weekly</div>
+      </div>
+      <div class="amount-option" onclick="selectAmount(999)">
+        <div class="circle-button" data-amount="999">₹999</div>
+        <div class="amount-label">Full Week</div>
+      </div>
+      <div class="amount-option" onclick="selectAmount(2500)">
+        <div class="circle-button" data-amount="2500">₹2500</div>
+        <div class="amount-label">Education</div>
+      </div>
+      <div class="amount-option" onclick="selectAmount('custom')">
+        <div class="circle-button" data-amount="custom">Custom</div>
+        <div class="amount-label">Any</div>
+      </div>
     </div>
+
+    <button id="donateBtn" onclick="showQR()">Donate Now</button>
 
     <div class="qr-code">
-      <img id="qrImage" src="" alt="QR Code">
+      <img id="qrImage" src="" style="display:none" alt="QR Code">
     </div>
 
-    <p class="instructions">
-      Scan the above QR code with your preferred UPI app or copy the UPI ID below to make a donation.
-    </p>
-
-    <div class="upi-id" onclick="copyUPI()">
-      <span>UPI ID:</span>
-      <span id="upiId">donatengo@airtel</span>
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-      </svg>
-      <span id="copyMsg" style="display:none;">Copied!</span>
-    </div>
-
-    <img class="promo-image" src="donate_children.webp" alt="Support Orphan Children">
+    <div class="upi-id">UPI ID: <span>donatengo@airtel</span></div>
   </div>
 
-  <footer>
-    © 2025 Support India Child NGO. Every rupee makes a difference.
-  </footer>
-
   <script>
-    function showQR(amount) {
-      const qrImage = document.getElementById('qrImage');
-      if (amount === 'custom') {
-        qrImage.src = 'qr_custom.webp';
-      } else {
-        qrImage.src = `qr_${amount}.webp`;
+    let selectedAmount = null;
+
+    function selectAmount(amount) {
+      selectedAmount = amount;
+
+      const buttons = document.querySelectorAll('.circle-button');
+      buttons.forEach(btn => btn.classList.remove('selected'));
+
+      const selectedBtn = [...buttons].find(btn => btn.dataset.amount == amount);
+      if (selectedBtn) selectedBtn.classList.add('selected');
+    }
+
+    function showQR() {
+      if (!selectedAmount) {
+        alert("Please select a donation amount first.");
+        return;
       }
+
+      const qrImage = document.getElementById("qrImage");
+      qrImage.src = selectedAmount === 'custom' ? 'qr_custom.webp' : `qr_${selectedAmount}.webp`;
       qrImage.style.display = 'block';
     }
-
-    function copyUPI() {
-      const upiId = document.getElementById("upiId").innerText;
-      const copyMsg = document.getElementById("copyMsg");
-      navigator.clipboard.writeText(upiId).then(() => {
-        copyMsg.style.display = "inline";
-        setTimeout(() => {
-          copyMsg.style.display = "none";
-        }, 1500);
-      });
-    }
   </script>
+
 </body>
 </html>

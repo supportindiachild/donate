@@ -2,182 +2,172 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Donate to Orphan Child</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donate to Orphan Children</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-      text-align: center;
       color: #333;
+      text-align: center;
     }
 
     .container {
       max-width: 500px;
-      margin: 0 auto;
+      margin: auto;
+      background: #fff;
       padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
-    .header-image {
+    .logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .banner-img {
       width: 100%;
-      max-height: 220px;
-      object-fit: cover;
-      border-bottom: 4px solid #1976d2;
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      margin-bottom: 20px;
     }
 
     h2 {
-      margin-top: 20px;
       color: #1976d2;
+      margin-bottom: 10px;
     }
 
     .donation-message {
       font-size: 16px;
-      margin: 10px 0 30px;
-      color: #444;
+      margin-bottom: 20px;
+      color: #555;
     }
 
     .amount-buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 12px;
+      margin-bottom: 20px;
     }
 
-    .amount-option {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    .circle-button {
-      width: 70px;
-      height: 70px;
+    .amount-buttons button {
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
-      background-color: #1976d2;
-      color: white;
-      font-size: 16px;
+      border: 2px solid #1976d2;
+      background: #fff;
+      color: #1976d2;
       font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      border: 2px solid transparent;
-      transition: transform 0.2s, background 0.3s;
-    }
-
-    .circle-button.selected {
-      border-color: #0d47a1;
-      background-color: #1565c0;
-      transform: scale(1.05);
-    }
-
-    .amount-label {
-      margin-top: 6px;
-      font-size: 14px;
-      color: #444;
-    }
-
-    #donateBtn {
-      margin-top: 30px;
-      padding: 14px 30px;
-      font-size: 16px;
-      border: none;
-      background-color: #388e3c;
-      color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: all 0.3s;
     }
 
-    #donateBtn:hover {
-      background-color: #2e7d32;
+    .amount-buttons button.selected {
+      background: #1976d2;
+      color: #fff;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     }
 
     .qr-code {
-      margin-top: 30px;
+      margin-top: 20px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
     }
 
     .qr-code img {
-      max-width: 250px;
-      margin: auto;
-      display: block;
+      width: 200px;
+      margin-bottom: 10px;
+    }
+
+    .scan-label {
+      font-weight: bold;
+      color: #1976d2;
+      font-size: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      padding: 8px 16px;
+      border-radius: 20px;
     }
 
     .upi-id {
       margin-top: 20px;
-      font-size: 15px;
-      font-weight: bold;
-      text-shadow: 1px 1px #ccc;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 8px 12px;
+      border-radius: 10px;
+      width: fit-content;
+      margin-inline: auto;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #777;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <img src="donate_children.webp" alt="Donate for Children" class="header-image">
+    <img src="ngo_logo.webp" alt="NGO Logo" class="logo">
+    <img src="donate_children.webp" alt="Support Children" class="banner-img">
 
     <h2>Support Orphaned Children</h2>
-    <p class="donation-message">Your donation helps provide food, education and care to children in need.</p>
+    <p class="donation-message">Your donation brings food, shelter, and education to children in need.</p>
 
     <div class="amount-buttons">
-      <div class="amount-option" onclick="selectAmount(99)">
-        <div class="circle-button" data-amount="99">₹99</div>
-        <div class="amount-label">1-day</div>
-      </div>
-      <div class="amount-option" onclick="selectAmount(499)">
-        <div class="circle-button" data-amount="499">₹499</div>
-        <div class="amount-label">Weekly</div>
-      </div>
-      <div class="amount-option" onclick="selectAmount(999)">
-        <div class="circle-button" data-amount="999">₹999</div>
-        <div class="amount-label">Full Week</div>
-      </div>
-      <div class="amount-option" onclick="selectAmount(2500)">
-        <div class="circle-button" data-amount="2500">₹2500</div>
-        <div class="amount-label">Education</div>
-      </div>
-      <div class="amount-option" onclick="selectAmount('custom')">
-        <div class="circle-button" data-amount="custom">Custom</div>
-        <div class="amount-label">Any</div>
-      </div>
+      <button onclick="selectAmount(99)">₹99</button>
+      <button onclick="selectAmount(499)">₹499</button>
+      <button onclick="selectAmount(999)">₹999</button>
+      <button onclick="selectAmount(2500)">₹2.5K</button>
+      <button onclick="selectAmount(10000)">₹10K</button>
+      <button onclick="selectAmount('custom')">Other</button>
     </div>
 
-    <button id="donateBtn" onclick="showQR()">Donate Now</button>
-
-    <div class="qr-code">
-      <img id="qrImage" src="" style="display:none" alt="QR Code">
+    <div class="qr-code" id="qrContainer">
+      <img id="qrImage" src="" alt="QR Code">
+      <div class="scan-label">Scan to Pay</div>
     </div>
 
-    <div class="upi-id">UPI ID: <span>donatengo@airtel</span></div>
+    <div class="upi-id" onclick="copyUPI()">
+      <span>UPI: <strong id="upiId">donatengo@airtel</strong></span>
+      <span id="copyMsg" style="display:none; color: green;">Copied!</span>
+    </div>
   </div>
 
+  <footer>
+    © 2025 Support India Child NGO
+  </footer>
+
   <script>
-    let selectedAmount = null;
+    const qrImage = document.getElementById("qrImage");
+    const qrContainer = document.getElementById("qrContainer");
+    const buttons = document.querySelectorAll(".amount-buttons button");
 
     function selectAmount(amount) {
-      selectedAmount = amount;
+      buttons.forEach(btn => btn.classList.remove("selected"));
+      const btn = Array.from(buttons).find(b => b.innerText.includes(amount) || amount === 'custom' && b.innerText === 'Other');
+      if (btn) btn.classList.add("selected");
 
-      const buttons = document.querySelectorAll('.circle-button');
-      buttons.forEach(btn => btn.classList.remove('selected'));
-
-      const selectedBtn = [...buttons].find(btn => btn.dataset.amount == amount);
-      if (selectedBtn) selectedBtn.classList.add('selected');
+      qrImage.src = amount === 'custom' ? "qr_custom.webp" : `qr_${amount}.webp`;
+      qrContainer.style.display = "flex";
     }
 
-    function showQR() {
-      if (!selectedAmount) {
-        alert("Please select a donation amount first.");
-        return;
-      }
-
-      const qrImage = document.getElementById("qrImage");
-      qrImage.src = selectedAmount === 'custom' ? 'qr_custom.webp' : `qr_${selectedAmount}.webp`;
-      qrImage.style.display = 'block';
+    function copyUPI() {
+      const upiId = document.getElementById("upiId").innerText;
+      navigator.clipboard.writeText(upiId).then(() => {
+        const msg = document.getElementById("copyMsg");
+        msg.style.display = "inline";
+        setTimeout(() => { msg.style.display = "none"; }, 1500);
+      });
     }
   </script>
 

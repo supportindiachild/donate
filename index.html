@@ -51,31 +51,31 @@
       margin-bottom: 25px;
     }
 
-    .amount-buttons button {
-  width: 70px;
-  height: 70px;
+  .amount-buttons button {
+  width: 80px;  /* Increased from 70px */
+  height: 80px;
   border-radius: 50%;
   border: 2px solid #1976d2;
   background: white;
   color: #1976d2;
-  font-size: 14px;
+  font-size: 18px; /* Bigger amount text */
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 3px 6px rgba(0,0,0,0.1);
   transition: background 0.3s, color 0.3s;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4px;
+  padding: 6px;
   text-align: center;
   line-height: 1.1;
 }
 
-    .amount-buttons button small {
+.amount-buttons button small {
   font-weight: normal;
-  font-size: 10px;
+  font-size: 11px; /* Slightly larger subtitle too */
 }
 
     .amount-buttons button.active,
@@ -135,6 +135,18 @@
       font-size: 13px;
       color: #666;
     }
+
+    @media (max-width: 400px) {
+  .amount-buttons button {
+    width: 70px;
+    height: 70px;
+    font-size: 16px;
+  }
+
+  .amount-buttons button small {
+    font-size: 10px;
+  }
+}
   </style>
 </head>
 <body>

@@ -52,18 +52,31 @@
     }
 
     .amount-buttons button {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      border: 2px solid #1976d2;
-      background: white;
-      color: #1976d2;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-      transition: background 0.3s, color 0.3s;
-    }
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #1976d2;
+  background: white;
+  color: #1976d2;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s, color 0.3s;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  text-align: center;
+  line-height: 1.1;
+}
+
+    .amount-buttons button small {
+  font-weight: normal;
+  font-size: 10px;
+}
 
     .amount-buttons button.active,
     .amount-buttons button:hover {
@@ -135,13 +148,14 @@
     </p>
 
     <div class="amount-buttons">
-      <button onclick="selectAmount(this, 99)">₹99<br><small>1-day support</small></button>
-      <button onclick="selectAmount(this, 499)">₹499<br><small>Weekly kit</small></button>
-      <button onclick="selectAmount(this, 999)">₹999<br><small>Full week care</small></button>
-      <button onclick="selectAmount(this, 2500)">₹2500<br><small>Education help</small></button>
-      <button onclick="selectAmount(this, 10000)">₹10K<br><small>2-month care</small></button>
-      <button onclick="selectAmount(this, 'custom')">Other<br><small>Your choice</small></button>
-    </div>
+  <button onclick="selectAmount(this, 99)"><div>₹99</div><small>1-day support</small></button>
+  <button onclick="selectAmount(this, 499)"><div>₹499</div><small>Weekly kit</small></button>
+  <button onclick="selectAmount(this, 999)"><div>₹999</div><small>Full week  care</small></button>
+  <button onclick="selectAmount(this, 2500)"><div>₹2500</div><small>Education  help</small></button>
+  <button onclick="selectAmount(this, 10000)"><div>₹10K</div><small>2-month care</small></button>
+  <button onclick="selectAmount(this, 'custom')"><div>Other</div><small>Your choice</small></button>
+</div>
+
 
     <div class="qr-section">
       <img id="qrImage" src="qr_custom.webp" alt="QR Code" />

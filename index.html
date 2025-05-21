@@ -3,36 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Donate to Our NGO</title>
+  <title>Donate to Orphan Support</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-      text-align: center;
       color: #333;
+      text-align: center;
     }
 
     .container {
-      padding: 30px 15px;
       max-width: 600px;
-      margin: auto;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+      padding: 30px 20px;
     }
 
     .logo {
-      max-width: 130px;
+      max-width: 100px;
       margin-bottom: 20px;
     }
 
-    .promo-image {
+    .promo-img {
       width: 100%;
-      max-height: 200px;
+      max-height: 220px;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       margin-bottom: 20px;
     }
 
@@ -43,100 +40,81 @@
 
     .donation-message {
       font-size: 16px;
-      margin-bottom: 25px;
-      color: #444;
+      margin-bottom: 20px;
     }
 
     .amount-buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
+      gap: 12px;
+      margin-bottom: 25px;
     }
 
-    .amount-buttons input[type="radio"] {
-      display: none;
-    }
-
-    .amount-buttons label {
-      padding: 12px 20px;
-      font-size: 16px;
-      border-radius: 20px;
-      background: #f0f0f0;
+    .amount-buttons button {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 2px solid #1976d2;
+      background: white;
       color: #1976d2;
-      border: 2px solid transparent;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    .amount-buttons input[type="radio"]:checked + label {
-      background-color: #1976d2;
-      color: white;
-      border-color: #1565c0;
-    }
-
-    .donate-btn {
-      margin-top: 15px;
-      padding: 12px 30px;
       font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      background-color: #1976d2;
-      color: white;
+      font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s, color 0.3s;
     }
 
-    .donate-btn:hover {
-      background-color: #1565c0;
+    .amount-buttons button.active,
+    .amount-buttons button:hover {
+      background: #1976d2;
+      color: white;
     }
 
     .qr-section {
-      margin-top: 30px;
+      position: relative;
+      margin-top: 20px;
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
     }
 
     .qr-section img {
-      width: 200px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 240px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .download-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      border-radius: 50%;
+      padding: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       cursor: pointer;
-      width: 28px;
-      height: 28px;
-      fill: #1976d2;
-      transition: transform 0.2s;
     }
 
     .download-icon:hover {
-      transform: scale(1.1);
+      background: #f0f0f0;
     }
 
     .upi-id {
       margin-top: 25px;
       font-size: 15px;
-      font-weight: 500;
-      color: #444;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 6px;
-      background: #f9f9f9;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
       cursor: pointer;
+      text-shadow: 0px 1px 2px rgba(0,0,0,0.2);
     }
 
-    .instruction {
-      margin-top: 15px;
-      font-size: 14px;
-      color: #1976d2;
-      font-style: italic;
+    #copyMsg {
+      font-size: 13px;
+      color: green;
     }
 
     footer {
@@ -148,72 +126,69 @@
 </head>
 <body>
   <div class="container">
-    <img src="ngo_logo.webp" alt="NGO Logo" class="logo">
-    <img src="donate_children.webp" alt="Children Promotion" class="promo-image">
-    <h2>Support Our Orphan Child Initiative</h2>
+    <img src="ngo_logo.webp" alt="NGO Logo" class="logo" />
+    <img src="donate_children.webp" alt="Support Orphans" class="promo-img" />
+
+    <h2>Support Local Orphan Children</h2>
     <p class="donation-message">
-      We are a small local NGO supporting orphaned children. Your support helps provide food, education, and care.
+      Help provide food, clothes, and education for orphaned children. Your support makes a real impact.
     </p>
 
-    <form id="donationForm">
-      <div class="amount-buttons">
-        <input type="radio" name="amount" value="99" id="amt99" checked>
-        <label for="amt99">₹99</label>
+    <div class="amount-buttons">
+      <button onclick="selectAmount(this, 99)">₹99</button>
+      <button onclick="selectAmount(this, 499)">₹499</button>
+      <button onclick="selectAmount(this, 999)">₹999</button>
+      <button onclick="selectAmount(this, 2500)">₹2500</button>
+      <button onclick="selectAmount(this, 10000)">₹10K</button>
+      <button onclick="selectAmount(this, 'custom')">Other</button>
+    </div>
 
-        <input type="radio" name="amount" value="499" id="amt499">
-        <label for="amt499">₹499</label>
-
-        <input type="radio" name="amount" value="999" id="amt999">
-        <label for="amt999">₹999</label>
-
-        <input type="radio" name="amount" value="2500" id="amt2500">
-        <label for="amt2500">₹2,500</label>
-
-        <input type="radio" name="amount" value="10000" id="amt10000">
-        <label for="amt10000">₹10,000</label>
-
-        <input type="radio" name="amount" value="custom" id="amtCustom">
-        <label for="amtCustom">Custom</label>
-      </div>
-
-      <button type="submit" class="donate-btn">Donate Now</button>
-    </form>
-
-    <div class="qr-section" id="qrSection">
-      <img id="qrImage" src="qr_custom.webp" alt="QR Code">
-      <a id="downloadLink" download="qr_custom.webp" href="qr_custom.webp" title="Download QR">
-        <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l4-5h-3V4h-2v7H8z"/><path d="M20 18H4v2h16z"/></svg>
+    <div class="qr-section">
+      <img id="qrImage" src="qr_custom.webp" alt="QR Code" />
+      <a id="downloadLink" href="qr_custom.webp" download>
+        <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#1976d2" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
       </a>
     </div>
 
+    <p style="margin-top: 16px;">Scan to Pay or Copy UPI ID</p>
+
     <div class="upi-id" onclick="copyUPI()">
       UPI ID: <span id="upiId">donatengo@airtel</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1976d2" viewBox="0 0 24 24">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <span id="copyMsg" style="display:none;">Copied!</span>
     </div>
 
-    <div class="instruction">Scan to pay or copy UPI ID to your app</div>
     <footer>
       © 2025 Support India Child NGO. Every rupee makes a difference.
     </footer>
   </div>
 
   <script>
-    const form = document.getElementById('donationForm');
-    const qrImage = document.getElementById('qrImage');
-    const downloadLink = document.getElementById('downloadLink');
+    function selectAmount(btn, amount) {
+      document.querySelectorAll('.amount-buttons button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const amount = document.querySelector('input[name="amount"]:checked').value;
-      const filename = amount === 'custom' ? 'qr_custom.webp' : `qr_${amount}.webp`;
-      qrImage.src = filename;
-      downloadLink.href = filename;
-      downloadLink.download = filename;
-    });
+      const qrImage = document.getElementById("qrImage");
+      const downloadLink = document.getElementById("downloadLink");
+
+      const src = amount === 'custom' ? 'qr_custom.webp' : `qr_${amount}.webp`;
+      qrImage.src = src;
+      downloadLink.href = src;
+    }
 
     function copyUPI() {
-      const upiId = document.getElementById("upiId").innerText;
-      navigator.clipboard.writeText(upiId).then(() => {
-        alert("UPI ID copied to clipboard!");
+      const upi = document.getElementById("upiId").innerText;
+      navigator.clipboard.writeText(upi).then(() => {
+        const msg = document.getElementById("copyMsg");
+        msg.style.display = "inline";
+        setTimeout(() => msg.style.display = "none", 1500);
       });
     }
   </script>
